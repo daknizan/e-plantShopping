@@ -1,0 +1,624 @@
+:root {
+  color: #17221a;
+  background: #f8faf3;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-synthesis: none;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  --green-950: #0d2f1f;
+  --green-800: #174a32;
+  --green-700: #206d49;
+  --green-100: #e8f5e7;
+  --leaf: #d9e8ce;
+  --coral: #d76a53;
+  --coral-dark: #a74230;
+  --ink: #17221a;
+  --muted: #607064;
+  --paper: #ffffff;
+  --cream: #f8faf3;
+  --line: #dce6d7;
+  --shadow: 0 18px 45px rgba(13, 47, 31, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    linear-gradient(135deg, rgba(232, 245, 231, 0.86), rgba(255, 249, 241, 0.78)),
+    var(--cream);
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.68;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.home-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(90deg, rgba(13, 47, 31, 0.84), rgba(13, 47, 31, 0.34)),
+    url("https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1800&q=80")
+      center/cover fixed;
+}
+
+.home-hero {
+  display: grid;
+  min-height: 78vh;
+  align-items: center;
+  padding: 48px 24px;
+}
+
+.home-content {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  color: #fff;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--coral);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.home-content .eyebrow {
+  color: #ffd3c8;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--green-950);
+  line-height: 1.06;
+}
+
+.home-content h1 {
+  margin-bottom: 18px;
+  color: #fff;
+  font-size: clamp(3.4rem, 9vw, 7.2rem);
+  letter-spacing: 0;
+}
+
+.home-content p {
+  max-width: 690px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(1rem, 2vw, 1.22rem);
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.primary-button,
+.secondary-button,
+.remove-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border-radius: 8px;
+  padding: 11px 16px;
+  border: 0;
+  font-weight: 850;
+  transition:
+    background 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.primary-button {
+  background: var(--green-700);
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(32, 109, 73, 0.23);
+}
+
+.primary-button:hover:not(:disabled) {
+  background: #268257;
+  transform: translateY(-1px);
+}
+
+.secondary-button {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--green-950);
+}
+
+.home-actions .secondary-button {
+  border-color: rgba(255, 255, 255, 0.66);
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+.large {
+  min-height: 52px;
+  padding: 13px 20px;
+}
+
+.about-section,
+.catalog,
+.cart-main {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.about-section {
+  border-radius: 8px 8px 0 0;
+  padding: 42px 0 64px;
+  color: var(--ink);
+}
+
+.about-section .section-heading h2 {
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3.3rem);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.about-grid article,
+.plant-card,
+.cart-card,
+.checkout-panel,
+.cart-total-panel,
+.empty-cart {
+  border: 1px solid rgba(220, 230, 215, 0.95);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow);
+}
+
+.about-grid article {
+  padding: 22px;
+}
+
+.about-grid h3 {
+  margin-bottom: 10px;
+  font-size: 1.28rem;
+}
+
+.about-grid p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--line);
+  padding: 14px max(24px, calc((100vw - 1180px) / 2));
+  background: rgba(248, 250, 243, 0.92);
+  backdrop-filter: blur(18px);
+}
+
+.brand-link {
+  color: var(--green-950);
+  font-weight: 950;
+}
+
+.nav-pages {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-pages a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 40px;
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #304239;
+  font-weight: 800;
+}
+
+.nav-pages a:hover {
+  background: var(--green-100);
+  color: var(--green-950);
+}
+
+.cart-icon {
+  font-size: 1.12rem;
+  line-height: 1;
+}
+
+.cart-count {
+  display: inline-grid;
+  min-width: 24px;
+  height: 24px;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--coral);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.shop-page,
+.cart-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 10% 5%, rgba(217, 232, 206, 0.92), transparent 28%),
+    linear-gradient(135deg, #f8faf3, #fff7ef);
+}
+
+.catalog,
+.cart-main {
+  padding: 46px 0 72px;
+}
+
+.page-intro {
+  max-width: 780px;
+  margin-bottom: 34px;
+}
+
+.page-intro h1 {
+  margin-bottom: 12px;
+  font-size: clamp(2.5rem, 5vw, 4.6rem);
+}
+
+.page-intro p {
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.plant-category {
+  padding: 26px 0 44px;
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 22px;
+}
+
+.section-heading h2 {
+  margin-bottom: 10px;
+  font-size: clamp(1.75rem, 3vw, 2.7rem);
+}
+
+.section-heading p {
+  color: var(--muted);
+}
+
+.plant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.plant-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.plant-card img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--leaf);
+}
+
+.plant-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 18px;
+}
+
+.plant-card-body span,
+.cart-card-info span {
+  margin-bottom: 8px;
+  color: var(--coral-dark);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.plant-card-body h3 {
+  margin-bottom: 8px;
+  font-size: 1.32rem;
+}
+
+.plant-card-body p {
+  margin-bottom: 18px;
+  color: var(--green-950);
+  font-weight: 950;
+}
+
+.plant-card-body button {
+  width: 100%;
+  margin-top: auto;
+}
+
+.cart-total-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding: 18px 20px;
+}
+
+.cart-total-panel span {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.cart-total-panel strong {
+  color: var(--green-950);
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+}
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  align-items: start;
+  gap: 22px;
+}
+
+.cart-items {
+  display: grid;
+  gap: 14px;
+}
+
+.cart-card {
+  display: grid;
+  grid-template-columns: 128px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 16px;
+  padding: 14px;
+}
+
+.cart-card img {
+  width: 128px;
+  height: 108px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.cart-card-info h2 {
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+}
+
+.cart-card-info p {
+  margin-bottom: 4px;
+  color: var(--muted);
+}
+
+.quantity-actions {
+  display: grid;
+  grid-template-columns: 38px 42px 38px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.quantity-actions button {
+  width: 38px;
+  height: 38px;
+  border: 0;
+  background: #fff;
+  color: var(--green-950);
+  font-size: 1.2rem;
+  font-weight: 950;
+}
+
+.quantity-actions button:hover {
+  background: var(--green-100);
+}
+
+.quantity-actions strong {
+  display: grid;
+  height: 38px;
+  place-items: center;
+  border-right: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.remove-button {
+  border: 1px solid #f0c4ba;
+  background: #fff3f0;
+  color: var(--coral-dark);
+  box-shadow: none;
+}
+
+.remove-button:hover {
+  background: #ffe6df;
+}
+
+.checkout-panel {
+  position: sticky;
+  top: 90px;
+  display: grid;
+  gap: 12px;
+  padding: 20px;
+}
+
+.checkout-panel h2,
+.empty-cart h2 {
+  margin-bottom: 4px;
+  font-size: 1.42rem;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+  color: var(--muted);
+}
+
+.summary-line strong {
+  color: var(--green-950);
+}
+
+.checkout-panel .primary-button,
+.checkout-panel .secondary-button {
+  width: 100%;
+}
+
+.checkout-message {
+  margin: 0;
+  border-left: 4px solid var(--coral);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #fff3f0;
+  color: var(--coral-dark);
+  font-weight: 850;
+}
+
+.empty-cart {
+  max-width: 700px;
+  padding: 28px;
+}
+
+.empty-cart p {
+  color: var(--muted);
+}
+
+.toast {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 30;
+  max-width: min(360px, calc(100vw - 44px));
+  border-radius: 8px;
+  padding: 14px 18px;
+  background: var(--green-950);
+  color: #fff;
+  box-shadow: var(--shadow);
+  font-weight: 850;
+}
+
+@media (max-width: 900px) {
+  .about-grid,
+  .plant-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-panel {
+    position: static;
+  }
+
+  .cart-card {
+    grid-template-columns: 118px minmax(0, 1fr);
+  }
+
+  .cart-card img {
+    width: 118px;
+    height: 104px;
+  }
+
+  .quantity-actions,
+  .remove-button {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-hero {
+    min-height: 72vh;
+    padding: 38px 18px;
+  }
+
+  .home-content h1 {
+    font-size: clamp(3rem, 17vw, 4.8rem);
+  }
+
+  .home-actions,
+  .top-nav,
+  .nav-pages {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .home-actions .primary-button,
+  .home-actions .secondary-button,
+  .nav-pages a {
+    width: 100%;
+  }
+
+  .about-section,
+  .catalog,
+  .cart-main {
+    width: min(100% - 32px, 1180px);
+  }
+
+  .about-grid,
+  .plant-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-total-panel {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cart-card {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-card img {
+    width: 100%;
+    height: 190px;
+  }
+
+  .quantity-actions,
+  .remove-button {
+    grid-column: auto;
+  }
+}
