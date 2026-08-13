@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, selectTotalItems } from './CartSlice.jsx';
+import { addItem, selectTotalItems } from './CartSlice.jsx';
 import { formatCurrency } from './utils/formatCurrency.js';
 
 const plantCategories = [
@@ -214,7 +214,7 @@ export default function ProductList() {
   }, [message]);
 
   const handleAddToCart = (plant) => {
-    dispatch(addToCart(plant));
+    dispatch(addItem(plant));
     setAddedPlantIds((currentIds) => [...new Set([...currentIds, plant.id])]);
     setMessage(`${plant.name} a été ajouté au panier.`);
   };

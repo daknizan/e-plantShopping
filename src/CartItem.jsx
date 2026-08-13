@@ -1,22 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  decreaseQuantity,
-  increaseQuantity,
-  removeFromCart,
+  removeItem,
   selectCartItems,
-  selectCartTotal,
   selectTotalItems,
+  updateQuantity,
 } from './CartSlice.jsx';
 import { Navigation } from './ProductList.jsx';
 import { formatCurrency } from './utils/formatCurrency.js';
 
+export function calculateCartTotal(items) {
+  return items.reduce((total, item) => total + item.price * item.quantity, 0);
+}
+
 export default function CartItem() {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
-  const cartTotal = useSelector(selectCartTotal);
   const totalItems = useSelector(selectTotalItems);
   const [checkoutMessage, setCheckoutMessage] = useState('');
+  const cartTotal = useMemo(() => calculateCartTotal(cartItems), [cartItems]);
 
   useEffect(() => {
     if (!checkoutMessage) {
@@ -26,6 +28,10 @@ export default function CartItem() {
     const timeoutId = window.setTimeout(() => setCheckoutMessage(''), 2600);
     return () => window.clearTimeout(timeoutId);
   }, [checkoutMessage]);
+
+  const handleQuantityChange = (item, quantity) => {
+    dispatch(updateQuantity({ id: item.id, quantity }));
+  };
 
   return (
     <div className="cart-page">
@@ -76,7 +82,7 @@ export default function CartItem() {
                     <button
                       type="button"
                       aria-label={`Diminuer ${item.name}`}
-                      onClick={() => dispatch(decreaseQuantity(item.id))}
+                      onClick={() => handleQuantityChange(item, item.quantity - 1)}
                     >
                       -
                     </button>
@@ -84,7 +90,7 @@ export default function CartItem() {
                     <button
                       type="button"
                       aria-label={`Augmenter ${item.name}`}
-                      onClick={() => dispatch(increaseQuantity(item.id))}
+                      onClick={() => handleQuantityChange(item, item.quantity + 1)}
                     >
                       +
                     </button>
@@ -93,7 +99,7 @@ export default function CartItem() {
                   <button
                     type="button"
                     className="remove-button"
-                    onClick={() => dispatch(removeFromCart(item.id))}
+                    onClick={() => dispatch(removeItem(item.id))}
                   >
                     Supprimer
                   </button>

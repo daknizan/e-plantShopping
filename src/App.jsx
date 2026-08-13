@@ -42,6 +42,7 @@ export default function App() {
   }, [page]);
 
   const startShopping = () => {
+    setPage('products');
     window.location.hash = '/products';
   };
 
@@ -58,7 +59,7 @@ export default function App() {
       <section className="home-hero" aria-labelledby="home-title">
         <div className="home-content">
           <p className="eyebrow">Boutique de plantes d'intérieur</p>
-          <h1 id="home-title">Paradise Nursery</h1>
+          <h1 id="home-title">Welcome To Paradise Nursery</h1>
           <p>
             Transformez votre maison avec des plantes d'intérieur fraîches,
             élégantes et faciles à entretenir, sélectionnées pour apporter une

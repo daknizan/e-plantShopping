@@ -5,7 +5,7 @@ boutique en ligne de plantes d'intérieur.
 
 ## Fonctionnalites
 
-- Page d'accueil avec le nom de l'entreprise et un bouton **Commencer**.
+- Page d'accueil avec **Welcome To Paradise Nursery** et un bouton **Commencer**.
 - Page **Plante** avec trois catégories et six plantes uniques par catégorie.
 - Carte produit avec miniature, nom, prix et bouton **Ajouter au panier**.
 - Bouton **Ajouter au panier** désactivé après l'ajout du produit.
@@ -14,6 +14,7 @@ boutique en ligne de plantes d'intérieur.
   suppression, montant total, bouton de paiement et bouton pour continuer les
   achats.
 - Gestion du panier avec Redux Toolkit, actions, réducteur et store.
+- Réducteurs du panier nommés `addItem`, `removeItem` et `updateQuantity`.
 - Utilisation de hooks React comme `useState` et `useEffect`.
 
 ## Lancer le projet
